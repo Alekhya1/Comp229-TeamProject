@@ -19,6 +19,6 @@
         <p><asp:RequiredFieldValidator ID="PasswordReq" runat="server" ControlToValidate="Password" ErrorMessage="Required Password" SetFocusOnError="true"></asp:RequiredFieldValidator>
    <p> <asp:Button ID="register" Text="Register" runat="server" /></p>
     <p> <asp:Button ID="Update" Text="Update" runat="server" /></p>
-           
+           <!--working-->
 
 </asp:Content>
