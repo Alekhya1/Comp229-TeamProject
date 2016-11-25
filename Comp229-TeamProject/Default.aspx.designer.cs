@@ -22,13 +22,31 @@ namespace Comp229_TeamProject {
         protected global::System.Web.UI.WebControls.Image studentimage;
         
         /// <summary>
-        /// bookname control.
+        /// novels control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Label bookname;
+        protected global::System.Web.UI.WebControls.Repeater novels;
+        
+        /// <summary>
+        /// audiobooks control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Repeater audiobooks;
+        
+        /// <summary>
+        /// ebooks control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Repeater ebooks;
         
         /// <summary>
         /// UserName control.
