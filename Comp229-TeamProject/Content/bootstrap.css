@@ -864,6 +864,17 @@ pre code {
   padding-left: 15px;
 }
 
+.image
+{
+     height:150px;
+     width:150px;   
+ }
+
+.button
+  {
+    text-align:center;
+  }
+
 .col-xs-1,
 .col-xs-2,
 .col-xs-3,
@@ -925,6 +936,7 @@ pre code {
 .col-xs-12 {
   width: 100%;
 }
+
 
 @media (min-width: 768px) {
   .container {
