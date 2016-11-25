@@ -1,12 +1,18 @@
 ﻿/* Move down content because we have a fixed navbar that is 50px tall */
 body {
     
-    background-image: url('../Models/Slide1.JPG');
+    padding-top:inherit;
     padding-bottom: 20px;
+}
+
+a{
+    text-align:center;
 }
 /*h1 allignment*/
 h1 {
     text-align: center;
+    padding-top:initial;
+    clip-path:initial;
 }
    p {
         text-align:right;
