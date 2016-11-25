@@ -4,7 +4,18 @@ body {
     background-image: url('../Models/Slide1.JPG');
     padding-bottom: 20px;
 }
-
+/*h1 allignment*/
+h1 {
+    text-align: center;
+}
+   p {
+        text-align:right;
+     }
+ h5{
+     text-align:right;
+     position:relative;
+     
+ }
 /* Wrapping element */
 /* Set some basic padding to keep content from hitting the edges */
 .body-content {

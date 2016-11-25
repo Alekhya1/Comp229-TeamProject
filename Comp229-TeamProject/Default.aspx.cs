@@ -12,8 +12,8 @@ namespace Comp229_TeamProject
     {
         protected void Page_Load(object sender, EventArgs e)
         {
-            SqlConnection connection = new SqlConnection("Server=DESKTOP-BN12BDD;Initial Catalog=Comp229Assign03;Integrated Security=True");
-            SqlCommand command = new SqlCommand("select * from Students", connection);
+            SqlConnection connection = new SqlConnection("Server=localhost\\SqlExpress;Database=Comp229TeamProject;Integrated Security=True");
+            SqlCommand command = new SqlCommand("select * from Books", connection);
             try
             {
 
@@ -28,6 +28,11 @@ namespace Comp229_TeamProject
             {
                 connection.Close();
             }
+        }
+
+        protected void LogIn_Click(object sender, EventArgs e)
+        {
+
         }
     }
 }
