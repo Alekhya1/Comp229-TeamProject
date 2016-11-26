@@ -4,7 +4,7 @@
   
     <div class="row">
         <div class="col-sm-3">  
-          <asp:Image ID="studentimage" ImageUrl="~/Assets/imageslibrary.jpeg" runat="server" Height="150" Width="150"/> 
+          <asp:Image ID="studentimage" ImageUrl="~/Assets/imageslibrary.jpeg" runat="server" Height="200" Width="200"/> 
         </div>
         <div class="col-sm-9">       <h1>AA Library</h1>
        <h4>     AA Library is a national depository library . 
@@ -18,31 +18,29 @@
     <br /> <br />
 
      <div class="row"> 
-        <div class="col-sm-3">
-           
-            <asp:Repeater ID="novels" runat="server">
-                <HeaderTemplate>Novels</HeaderTemplate>
-                <ItemTemplate><p> <%# Eval("Bookname") %></p></ItemTemplate>
-            </asp:Repeater>
-        </div>
-     
-         <div class="col-sm-3">
-           
-            <asp:Repeater ID="audiobooks" runat="server">
-                <HeaderTemplate>Novels</HeaderTemplate>
-                <ItemTemplate><p> <%# Eval("Bookname") %></p></ItemTemplate>
-            </asp:Repeater>
+        <div class="col-sm-4">
+            
+             Items owned by user :<asp:Label ID="OwnedItems" runat="server" />
+             Items in wanted list : <asp:Label ID="WantedItems" runat="server" />
+             Items under loan : <asp:Label ID="LoanedItems" runat="server" />
+              Recently added items into collection : <asp:Label ID="recentitems" runat="server" />
+                  
+                       
         </div>
 
-         <div class="col-sm-3">
-           
-            <asp:Repeater ID="ebooks" runat="server">
-                <HeaderTemplate>Novels</HeaderTemplate>
-                <ItemTemplate><p> <%# Eval("Bookname") %></p></ItemTemplate>
-            </asp:Repeater>
+         <div class="col-sm-4">
+             Select Item : <select id="Collection"  name="CollectionList" runat="server">
+                  <option id="Movie">Movies</option>
+                 <option id="Game">Games</option>
+                 <option id="Book">Books</option>
+              </select>
+                       
         </div>
 
-       <div class="col-sm-3"> 
+       <div class="col-sm-4"> 
+
+        
+
             <h3> Login </h3>
              Username: <asp:TextBox ID="UserName" runat="server"/> 
               <asp:RequiredFieldValidator ID="UserNameReq" runat="server" ControlToValidate="UserName" ErrorMessage="Required UserName" SetFocusOnError="true"></asp:RequiredFieldValidator>

@@ -22,31 +22,49 @@ namespace Comp229_TeamProject {
         protected global::System.Web.UI.WebControls.Image studentimage;
         
         /// <summary>
-        /// novels control.
+        /// OwnedItems control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Repeater novels;
+        protected global::System.Web.UI.WebControls.Label OwnedItems;
         
         /// <summary>
-        /// audiobooks control.
+        /// WantedItems control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Repeater audiobooks;
+        protected global::System.Web.UI.WebControls.Label WantedItems;
         
         /// <summary>
-        /// ebooks control.
+        /// LoanedItems control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Repeater ebooks;
+        protected global::System.Web.UI.WebControls.Label LoanedItems;
+        
+        /// <summary>
+        /// recentitems control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Label recentitems;
+        
+        /// <summary>
+        /// Collection control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.HtmlControls.HtmlSelect Collection;
         
         /// <summary>
         /// UserName control.
