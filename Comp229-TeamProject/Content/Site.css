@@ -1,7 +1,7 @@
 ﻿/* Move down content because we have a fixed navbar that is 50px tall */
 body {
-    
-    padding-top:inherit;
+    background-image: url('../Assets/BackgroundImage1.jpg');
+    padding-top: inherit;
     padding-bottom: 20px;
 }
 
