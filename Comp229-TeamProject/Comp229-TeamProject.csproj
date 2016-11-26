@@ -197,6 +197,7 @@
     <Content Include="Account\ResetPasswordConfirmation.aspx" />
     <Content Include="Account\TwoFactorAuthenticationSignIn.aspx" />
     <Content Include="Account\VerifyPhoneNumber.aspx" />
+    <Content Include="Assets\BackgroundImage.jpg" />
     <Content Include="Assets\BackgroundImage1.jpg" />
     <Content Include="Assets\imageslibrary.jpeg" />
     <Content Include="Content\bootstrap.css" />
