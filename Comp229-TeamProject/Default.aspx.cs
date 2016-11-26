@@ -9,26 +9,34 @@ using System.Web.UI.WebControls;
 
 namespace Comp229_TeamProject
 {
-    public partial class _Default : Page
+    public partial class Default : Page
     {
+        private object itemlist;
+
         protected void Page_Load(object sender, EventArgs e)
             {
-
+             
             int items_added =Added_items();
             SqlConnection connection = new SqlConnection("Server=localhost\\SqlExpress;Database=Comp229TeamProject;Integrated Security=True");
-            SqlCommand command = new SqlCommand("select count(*) from items where ItemStatus='owned'", connection);
-            SqlCommand command1 = new SqlCommand("select count(*) from items where ItemStatus='wanted'", connection);
-            SqlCommand command2 = new SqlCommand("select count(*) from items where ItemStatus='loaned'", connection);
+            SqlCommand command = new SqlCommand("select count(*) as bstat from Bstatus where ItemStatus='Owned'", connection);
+            SqlCommand command1 = new SqlCommand("select count(*) as ostat from Bstatus where ItemStatus='Wanted'", connection);
+            SqlCommand command2 = new SqlCommand("select count(*) as lstat from Bstatus where ItemStatus='Loaned'", connection);
             try
             {
 
                 connection.Open();
                 SqlDataReader reader = command.ExecuteReader();
-                OwnedItems.Text = reader["count(*)"].ToString();
+                if (reader.Read())
+                { OwnedItems.Text = reader["bstat"].ToString(); }
                 reader.Close();
-                WantedItems.Text = reader["count(*)"].ToString();
+                reader = command1.ExecuteReader();
+                if (reader.Read())
+                { WantedItems.Text = reader["ostat"].ToString(); }
                 reader.Close();
-                LoanedItems.Text= reader["count(*)"].ToString();
+                reader = command2.ExecuteReader();
+
+                if (reader.Read())
+                { LoanedItems.Text = reader["lstat"].ToString(); }
                 reader.Close();
             }
 
@@ -46,21 +54,24 @@ namespace Comp229_TeamProject
 
             int sum = 0;
             SqlConnection connection = new SqlConnection("Server=localhost\\SqlExpress;Database=Comp229TeamProject;Integrated Security=True");
-            SqlCommand command = new SqlCommand("select count(*) from Books where date in(select max(date) from books)", connection);
-            SqlCommand command1 = new SqlCommand("select count(*) from Books where date in(select max(date) from books)", connection);
-            SqlCommand command2 = new SqlCommand("select count(*) from Books where date in(select max(date) from books)", connection);
+            SqlCommand command = new SqlCommand("select count(*) as bookscount from EBooks where EditionDate in(select max(EditionDate) from Ebooks)", connection);
+            SqlCommand command1 = new SqlCommand("select count(*) as moviescount from Movies where ReleaseDate in(select max(ReleaseDate) from Movies)", connection);
+            SqlCommand command2 = new SqlCommand("select count(*) as gamescount from Games where ReleaseDate in(select max(ReleaseDate) from Games)", connection);
             try
             {
 
                 connection.Open();
                 SqlDataReader reader = command.ExecuteReader();
-                sum = sum + Convert.ToInt32(reader["count(*)"]);
+                if(reader.Read()) { sum = sum + Convert.ToInt32(reader["bookscount"]); } 
+                        
                 reader.Close();
                 reader = command1.ExecuteReader();
-                sum = sum + Convert.ToInt32(reader["count(*)"]);
+                if (reader.Read())
+                { sum = sum + Convert.ToInt32(reader["moviescount"]); }
                 reader.Close();
                 reader = command2.ExecuteReader();
-                sum = sum + Convert.ToInt32(reader["count(*)"]);
+                if (reader.Read())
+                { sum = sum + Convert.ToInt32(reader["gamescount"]); }
                 reader.Close();
             }
 
@@ -76,6 +87,41 @@ namespace Comp229_TeamProject
         protected void LogIn_Click(object sender, EventArgs e)
         { 
 
+        }
+
+        protected void CollectionItem_SelectedIndexChanged(object sender, EventArgs e)
+        {
+
+            int value = Convert.ToInt32(CollectionItem.SelectedValue);
+            SqlConnection connection = new SqlConnection("Server=localhost\\SqlExpress;Database=Comp229TeamProject;Integrated Security=True");
+            SqlCommand command = new SqlCommand("null");
+            
+            if(value==1)
+                {
+                    command= new SqlCommand("select * from Movies", connection);
+                }
+            else if(value==2)
+            {
+                command = new SqlCommand("select * from Games", connection);
+            }
+
+            else if(value==3)
+            {
+                command = new SqlCommand("select * from EBooks", connection);
+            }
+                
+            try
+            {
+                connection.Open();
+                SqlDataReader reader = command.ExecuteReader();
+                displayitemlist.DataSource = reader;
+                displayitemlist.DataBind();
+            }
+            finally
+            {
+                connection.Close();
+            }
+            
         }
     }
 }

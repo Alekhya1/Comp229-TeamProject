@@ -10,7 +10,7 @@
 namespace Comp229_TeamProject {
     
     
-    public partial class _Default {
+    public partial class Default {
         
         /// <summary>
         /// studentimage control.
@@ -58,13 +58,22 @@ namespace Comp229_TeamProject {
         protected global::System.Web.UI.WebControls.Label recentitems;
         
         /// <summary>
-        /// Collection control.
+        /// CollectionItem control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.HtmlControls.HtmlSelect Collection;
+        protected global::System.Web.UI.WebControls.DropDownList CollectionItem;
+        
+        /// <summary>
+        /// displayitemlist control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Repeater displayitemlist;
         
         /// <summary>
         /// UserName control.

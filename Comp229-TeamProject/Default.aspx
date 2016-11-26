@@ -1,4 +1,4 @@
-﻿<%@ Page Title="Home Page" Language="C#" MasterPageFile="~/Site.Master" AutoEventWireup="true" CodeBehind="Default.aspx.cs" Inherits="Comp229_TeamProject._Default" %>
+﻿<%@ Page Title="Home Page" Language="C#" MasterPageFile="~/Site.Master" AutoEventWireup="true" CodeBehind="Default.aspx.cs" Inherits="Comp229_TeamProject.Default" %>
 <asp:Content ID="BodyContent" ContentPlaceHolderID="MainContent" runat="server">
   <!--logo is from https://www.google.ca/url?sa=i&rct=j&q=&esrc=s&source=images&cd=&cad=rja&uact=8&ved=0ahUKEwjHrv-jlcPQAhXj24MKHWk-DbYQjhwIBQ&url=http%3A%2F%2Fwww.illustrationsof.com%2F1097307-royalty-free-library-clipart-illustration&bvm=bv.139782543,d.amc&psig=AFQjCNFDecrRKsoitKWmiOSF4Os96Q7B7g&ust=1480137786694944 -->
   
@@ -18,24 +18,36 @@
     <br /> <br />
 
      <div class="row"> 
-        <div class="col-sm-4">
-            
-             Items owned by user :<asp:Label ID="OwnedItems" runat="server" />
-             Items in wanted list : <asp:Label ID="WantedItems" runat="server" />
-             Items under loan : <asp:Label ID="LoanedItems" runat="server" />
-              Recently added items into collection : <asp:Label ID="recentitems" runat="server" />
+        <div class="col-sm-5">
+             <h1>  Statistics </h1>
+
+           <h4>Items owned by user : <asp:Label ID="OwnedItems" runat="server" /> </h4><br />
+             <h4> Items in wanted list : <asp:Label ID="WantedItems" runat="server" /></h4> <br />
+            <h4> Items under loan : <asp:Label ID="LoanedItems" runat="server" /> </h4><br />
+             <h4> Recently added items into collection :  <asp:Label ID="recentitems" runat="server" /> </h4><br />
                   
                        
         </div>
 
-         <div class="col-sm-4">
-             Select Item : <select id="Collection"  name="CollectionList" runat="server">
-                  <option id="Movie">Movies</option>
-                 <option id="Game">Games</option>
-                 <option id="Book">Books</option>
-              </select>
-                       
+         <div class="col-sm-3">
+                <h1> Collections </h1>
+                 <asp:DropDownList ID="CollectionItem" AutoPostBack="true" runat="server" OnSelectedIndexChanged="CollectionItem_SelectedIndexChanged">
+                  <asp:ListItem Text="Movies" Value="1"></asp:ListItem>
+                     <asp:ListItem Text="Games" Value="2"></asp:ListItem>
+                     <asp:ListItem Text="Books" Value="3"></asp:ListItem>
+                   </asp:DropDownList>
+             <br /> <br />
+             <div id="listdisply"> 
+                 <asp:Repeater ID="displayitemlist" runat="server">
+                     <ItemTemplate>
+                       <a link="Contact.aspx">  <%# Eval("ItemName") %></a>    <br />
+                     </ItemTemplate>
+
+                 </asp:Repeater>
+             </div>
+                                                                  
         </div>
+       
 
        <div class="col-sm-4"> 
 
