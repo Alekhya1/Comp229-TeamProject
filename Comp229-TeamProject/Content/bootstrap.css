@@ -67,7 +67,6 @@ body {
     margin: 0;
     background-image: url('../Assets/BackgroundImage1.jpg');
     background-attachment:fixed;
-    background-repeat:repeat;
 }
 
 a:focus {

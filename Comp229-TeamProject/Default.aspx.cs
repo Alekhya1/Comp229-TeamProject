@@ -11,7 +11,7 @@ namespace Comp229_TeamProject
 {
     public partial class Default : Page
     {
-        public int value = 0;
+        private object itemlist;
 
         protected void Page_Load(object sender, EventArgs e)
             {
@@ -92,8 +92,8 @@ namespace Comp229_TeamProject
         protected void CollectionItem_SelectedIndexChanged(object sender, EventArgs e)
         {
 
-            value = Convert.ToInt32(CollectionItem.SelectedValue);
-           SqlConnection connection = new SqlConnection("Server=localhost\\SqlExpress;Database=Comp229TeamProject;Integrated Security=True");
+            int value = Convert.ToInt32(CollectionItem.SelectedValue);
+            SqlConnection connection = new SqlConnection("Server=localhost\\SqlExpress;Database=Comp229TeamProject;Integrated Security=True");
             SqlCommand command = new SqlCommand("null");
             
             if(value==1)
