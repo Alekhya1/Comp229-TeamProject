@@ -247,7 +247,7 @@
     <Content Include="Global.asax" />
     <Content Include="Site.Master" />
     <Content Include="Update.aspx" />
-    <Content Include="UserPage.aspx" />
+    <Content Include="RegisterPage.aspx" />
     <Content Include="ViewBooks.aspx" />
     <Content Include="ViewSwitcher.ascx" />
     <Content Include="Web.config" />
@@ -407,12 +407,12 @@
     <Compile Include="Update.aspx.designer.cs">
       <DependentUpon>Update.aspx</DependentUpon>
     </Compile>
-    <Compile Include="UserPage.aspx.cs">
-      <DependentUpon>UserPage.aspx</DependentUpon>
+    <Compile Include="RegisterPage.aspx.cs">
+      <DependentUpon>RegisterPage.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
     </Compile>
-    <Compile Include="UserPage.aspx.designer.cs">
-      <DependentUpon>UserPage.aspx</DependentUpon>
+    <Compile Include="RegisterPage.aspx.designer.cs">
+      <DependentUpon>RegisterPage.aspx</DependentUpon>
     </Compile>
     <Compile Include="ViewBooks.aspx.cs">
       <DependentUpon>ViewBooks.aspx</DependentUpon>
