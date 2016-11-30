@@ -1,16 +1,13 @@
-﻿<%@ Page Language="C#" AutoEventWireup="true" CodeBehind="ViewBooks.aspx.cs" Inherits="Comp229_TeamProject.ViewBooks" %>
-<!--Author of this page:Alekhya, Description:User can view books from this page,version:1-->
-<!DOCTYPE html>
+﻿    <!---Name:Alekhya valiveti-->
 
-<html xmlns="http://www.w3.org/1999/xhtml">
-<head runat="server">
-    <title></title>
-</head>
-<body>
-    <form id="form1" runat="server">
-    <div>
-    
+<%@ Page Title="ViewItems" Language="C#" MasterPageFile="~/Site.Master" AutoEventWireup="true" CodeBehind="ViewBooks.aspx.cs" Inherits="Comp229_TeamProject.ViewBooks" %>
+<asp:Content ID="BodyContent" ContentPlaceHolderID="MainContent" runat="server">
+    <asp:Label ID="hi" runat="server" />
+    <asp:Label ID="hii" runat="server" />
+
+    <div class="row">
+
+
     </div>
-    </form>
-</body>
-</html>
+    
+    </asp:Content>

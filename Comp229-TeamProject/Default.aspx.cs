@@ -11,12 +11,12 @@ namespace Comp229_TeamProject
 {
     public partial class Default : Page
     {
-        private object itemlist;
+        public int value = 0;
 
         protected void Page_Load(object sender, EventArgs e)
-            {
-             
-            int items_added =Added_items();
+        {
+
+            int items_added = Added_items();
             SqlConnection connection = new SqlConnection("Server=localhost\\SqlExpress;Database=Comp229TeamProject;Integrated Security=True");
             SqlCommand command = new SqlCommand("select count(*) as bstat from Bstatus where ItemStatus='Owned'", connection);
             SqlCommand command1 = new SqlCommand("select count(*) as ostat from Bstatus where ItemStatus='Wanted'", connection);
@@ -62,8 +62,8 @@ namespace Comp229_TeamProject
 
                 connection.Open();
                 SqlDataReader reader = command.ExecuteReader();
-                if(reader.Read()) { sum = sum + Convert.ToInt32(reader["bookscount"]); } 
-                        
+                if (reader.Read()) { sum = sum + Convert.ToInt32(reader["bookscount"]); }
+
                 reader.Close();
                 reader = command1.ExecuteReader();
                 if (reader.Read())
@@ -85,31 +85,31 @@ namespace Comp229_TeamProject
 
 
         protected void LogIn_Click(object sender, EventArgs e)
-        { 
+        {
 
         }
 
         protected void CollectionItem_SelectedIndexChanged(object sender, EventArgs e)
         {
 
-            int value = Convert.ToInt32(CollectionItem.SelectedValue);
+            value = Convert.ToInt32(CollectionItem.SelectedValue);
             SqlConnection connection = new SqlConnection("Server=localhost\\SqlExpress;Database=Comp229TeamProject;Integrated Security=True");
             SqlCommand command = new SqlCommand("null");
-            
-            if(value==1)
-                {
-                    command= new SqlCommand("select * from Movies", connection);
-                }
-            else if(value==2)
+
+            if (value == 1)
+            {
+                command = new SqlCommand("select * from Movies", connection);
+            }
+            else if (value == 2)
             {
                 command = new SqlCommand("select * from Games", connection);
             }
 
-            else if(value==3)
+            else if (value == 3)
             {
                 command = new SqlCommand("select * from EBooks", connection);
             }
-                
+
             try
             {
                 connection.Open();
@@ -121,7 +121,7 @@ namespace Comp229_TeamProject
             {
                 connection.Close();
             }
-            
+
         }
     }
 }
