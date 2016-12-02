@@ -11,7 +11,8 @@ namespace Comp229_TeamProject
     {
         protected void Page_Load(object sender, EventArgs e)
         {
-
+            string name = Request.QueryString["id"];
+            check.Text = name;
         }
     }
 }
