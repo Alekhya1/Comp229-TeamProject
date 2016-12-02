@@ -2,6 +2,18 @@
 <asp:Content ID="BodyContent" ContentPlaceHolderID="MainContent" runat="server">
 <div class="row">
            <div class="col-md-4">
+               <p>username:
+        <asp:TextBox id="username" runat="server"/>
+        <asp:RequiredFieldValidator ID="usernameReq" runat="server" ControlToValidate="Username"
+            ErrorMessage="Username is required" SetFocusOnError="true"/>
+    </p><br />
+    <p>Password:
+        <asp:TextBox id="Password" placeholder="" TextMode="Password" runat="server"/>
+             Re-type Password:
+        <asp:TextBox ID="RetypePassword" placeholder="" textMode="Password" runat="server" />
+        <asp:CompareValidator ID="passwordreq" runat="server" ControlToValidate="Retypepassword" ControlToCompare="Password"
+            ErrorMessage="Password is not matched" SetFocusOnError="true"/>
+    </p><br />
               <p> 
                   First Name
                <asp:TextBox ID="FirstName" runat="server" />
