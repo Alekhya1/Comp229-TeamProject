@@ -53,7 +53,7 @@
        <div class="col-md-3"> 
 
         
-
+           <div class="Login">
             <h3> Login </h3>
              Username: <asp:TextBox ID="UserName" runat="server"/> 
               <asp:RequiredFieldValidator ID="UserNameReq" runat="server" ControlToValidate="UserName" ErrorMessage="Required UserName" SetFocusOnError="true"></asp:RequiredFieldValidator>
@@ -65,7 +65,7 @@
            New User? <asp:HyperLink ID="registrationlink" NavigateUrl="~/RegisterPage.aspx" Text="Register Here" runat="server"></asp:HyperLink>
             </div>
 
-         
+         </div>
               
      </div>
   </asp:Content>
