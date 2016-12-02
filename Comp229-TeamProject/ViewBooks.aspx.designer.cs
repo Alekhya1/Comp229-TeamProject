@@ -13,21 +13,48 @@ namespace Comp229_TeamProject {
     public partial class ViewBooks {
         
         /// <summary>
-        /// hi control.
+        /// discont control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Label hi;
+        protected global::System.Web.UI.HtmlControls.HtmlGenericControl discont;
         
         /// <summary>
-        /// hii control.
+        /// nameofitem control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Label hii;
+        protected global::System.Web.UI.WebControls.Label nameofitem;
+        
+        /// <summary>
+        /// UniqueNo control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Label UniqueNo;
+        
+        /// <summary>
+        /// RDate control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Label RDate;
+        
+        /// <summary>
+        /// Description control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Label Description;
     }
 }

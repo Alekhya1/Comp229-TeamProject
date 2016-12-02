@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Configuration;
 using System.Data.SqlClient;
 using System.Linq;
 using System.Web;
@@ -16,7 +17,8 @@ namespace Comp229_TeamProject
             int itemvalue = Convert.ToInt32(Request.QueryString["id2"]);
             int item = Convert.ToInt32(Request.QueryString["id2"]);
             string itemname = Request.QueryString["id"];
-            SqlConnection connection = new SqlConnection("Server=localhost\\SqlExpress;Database=Comp229TeamProject;Integrated Security=True");
+            string connectionString = ConfigurationManager.ConnectionStrings["anithasystem"].ConnectionString;
+            SqlConnection connection = new SqlConnection(connectionString);
             SqlCommand command = new SqlCommand("null");
 
             if (itemvalue == 1)
@@ -47,19 +49,20 @@ namespace Comp229_TeamProject
                 {
                     if (itemvalue == 1)
                     {
-                        hi.Text = reader["ASICno"].ToString();
-                        hii.Text = reader["ShortDescription"].ToString();
+                        nameofitem.Text = "Movie Name  :"+ reader["ItemName"].ToString();
+                        UniqueNo.Text = "ASINno      :"+reader["ASINno"].ToString();
+                        RDate.Text =    "Release Date:"+reader["ReleaseDate"].ToString();
+                        Description.Text = "Description :"+reader["ShortDescription"].ToString();
+                        discont.Attributes["style"] = "text-align: center;";
                     }
                     if (itemvalue == 2)
                     {
-                        hi.Text = reader["UPC"].ToString();
-                        hii.Text = reader["OnPlatform"].ToString();
+                       
                     }
 
                     if (itemvalue == 3)
                     {
-                        hi.Text = reader["EditionDate"].ToString();
-                        hii.Text = reader["NoofPages"].ToString();
+                       
                     }
                 }
 

@@ -791,6 +791,12 @@ pre code {
   clear: both;
 }
 
+.registercontent
+
+{
+    position:center;
+    align-content:center;
+}
 .row {
   margin-right: -15px;
   margin-left: -15px;
@@ -869,6 +875,7 @@ pre code {
   padding-right: 15px;
   padding-left: 15px;
 }
+
 
 .image
 {

@@ -62,9 +62,11 @@
                <asp:RequiredFieldValidator ID="PasswordReq" runat="server" ControlToValidate="Password" ErrorMessage="Required Password" SetFocusOnError="true"></asp:RequiredFieldValidator>
                <br />
             <div class="button"><asp:Button ID="LogIn" Text="LogIn" runat="server" style="text-align:center"/> </div> <br />
-            New User? Register here
-              <asp:Button ID="register" Text="Register" runat="server" />
-        </div>
+           New User? <asp:HyperLink ID="registrationlink" NavigateUrl="~/RegisterPage.aspx" Text="Register Here" runat="server"></asp:HyperLink>
+            </div>
+
+         
+              
      </div>
   </asp:Content>
     

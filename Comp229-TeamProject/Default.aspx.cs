@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Configuration;
 using System.Data;
 using System.Data.SqlClient;
 using System.Linq;
@@ -17,7 +18,8 @@ namespace Comp229_TeamProject
         {
 
             int items_added = Added_items();
-            SqlConnection connection = new SqlConnection("Server=localhost\\SqlExpress;Database=Comp229TeamProject;Integrated Security=True");
+            string connectionString = ConfigurationManager.ConnectionStrings["anithasystem"].ConnectionString;
+            SqlConnection connection = new SqlConnection(connectionString);
             SqlCommand command = new SqlCommand("select count(*) as bstat from Bstatus where ItemStatus='Owned'", connection);
             SqlCommand command1 = new SqlCommand("select count(*) as ostat from Bstatus where ItemStatus='Wanted'", connection);
             SqlCommand command2 = new SqlCommand("select count(*) as lstat from Bstatus where ItemStatus='Loaned'", connection);
@@ -53,7 +55,8 @@ namespace Comp229_TeamProject
         {
 
             int sum = 0;
-            SqlConnection connection = new SqlConnection("Server=localhost\\SqlExpress;Database=Comp229TeamProject;Integrated Security=True");
+            string connectionString = ConfigurationManager.ConnectionStrings["anithasystem"].ConnectionString;
+            SqlConnection connection = new SqlConnection(connectionString);
             SqlCommand command = new SqlCommand("select count(*) as bookscount from EBooks where EditionDate in(select max(EditionDate) from Ebooks)", connection);
             SqlCommand command1 = new SqlCommand("select count(*) as moviescount from Movies where ReleaseDate in(select max(ReleaseDate) from Movies)", connection);
             SqlCommand command2 = new SqlCommand("select count(*) as gamescount from Games where ReleaseDate in(select max(ReleaseDate) from Games)", connection);
@@ -93,7 +96,8 @@ namespace Comp229_TeamProject
         {
 
             value = Convert.ToInt32(CollectionItem.SelectedValue);
-            SqlConnection connection = new SqlConnection("Server=localhost\\SqlExpress;Database=Comp229TeamProject;Integrated Security=True");
+            string connectionString = ConfigurationManager.ConnectionStrings["anithasystem"].ConnectionString;
+            SqlConnection connection = new SqlConnection(connectionString);
             SqlCommand command = new SqlCommand("null");
 
             if (value == 1)
@@ -123,5 +127,6 @@ namespace Comp229_TeamProject
             }
 
         }
-    }
+
+       }
 }
