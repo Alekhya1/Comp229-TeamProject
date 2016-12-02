@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Configuration;
+using System.Data;
 using System.Data.SqlClient;
 using System.Linq;
 using System.Web;
@@ -20,6 +21,7 @@ namespace Comp229_TeamProject
             string connectionString = ConfigurationManager.ConnectionStrings["anithasystem"].ConnectionString;
             SqlConnection connection = new SqlConnection(connectionString);
             SqlCommand command = new SqlCommand("null");
+            SqlCommand command1 = new SqlCommand("null");
 
             if (itemvalue == 1)
             {
@@ -36,7 +38,7 @@ namespace Comp229_TeamProject
 
             else if (itemvalue == 3)
             {
-                command = new SqlCommand("select * from EBooks where ItemName=@ItemName", connection);
+                command = new SqlCommand("select * from EBooks books,SAuthor authors,ISBN isbn where books.BookID = authors.BookID and books.BookID = isbn.BookID and ItemName = @ItemName", connection);
                 command.Parameters.Add("@ItemName", System.Data.SqlDbType.VarChar);
                 command.Parameters["@ItemName"].Value = itemname;
             }
@@ -45,29 +47,50 @@ namespace Comp229_TeamProject
             {
                 connection.Open();
                 SqlDataReader reader = command.ExecuteReader();
+
                 while (reader.Read())
                 {
                     if (itemvalue == 1)
                     {
-                        nameofitem.Text = "Movie Name  :"+ reader["ItemName"].ToString();
-                        UniqueNo.Text = "ASINno      :"+reader["ASINno"].ToString();
-                        RDate.Text =    "Release Date:"+reader["ReleaseDate"].ToString();
-                        Description.Text = "Description :"+reader["ShortDescription"].ToString();
-                        discont.Attributes["style"] = "text-align: center;";
+
+                        command1 = new SqlCommand("select users.FirstName,users.LastName,Review.Rating,Review.Comments from SUsers users,SReview Review where users.UserID=Review.UserID and Review.ItemId=@ItemId", connection);
+                        command1.Parameters.Add("@ItemId", System.Data.SqlDbType.Int);
+                        command1.Parameters["@ItemId"].Value = Convert.ToInt32(reader["MovieId"]);
+
+                        nameofitem.Text = "<b>Movie Name  </b>:" + reader["ItemName"].ToString();
+                        UniqueNo.Text = "<b> ASINno </b>     :" + reader["ASINno"].ToString();
+                        RDate.Text = "<b> Release Date: </b>" + reader["ReleaseDate"].ToString();
+                        Description.Text = "<b> Description : </b>" + reader["ShortDescription"].ToString();
+                        Others.Text = "";
                     }
+
                     if (itemvalue == 2)
                     {
-                       
+
+                        command1 = new SqlCommand("select users.FirstName,users.LastName,Review.Rating,Review.Comments from SUsers users,SReview Review where users.UserID=Review.UserID and Review.ItemId=@ItemId", connection);
+                        command1.Parameters.Add("@ItemId", System.Data.SqlDbType.Int);
+                        command1.Parameters["@ItemId"].Value = Convert.ToInt32(reader["GameID"]);
                     }
 
                     if (itemvalue == 3)
                     {
-                       
+
+                        command1 = new SqlCommand("select users.FirstName,users.LastName,Review.Rating,Review.Comments from SUsers users,SReview Review where users.UserID=Review.UserID and Review.ItemId=@ItemId", connection);
+                        command1.Parameters.Add("@ItemId", System.Data.SqlDbType.Int);
+                        command1.Parameters["@ItemId"].Value = Convert.ToInt32(reader["BookId"]);
+
                     }
+
                 }
-
-
+                reader.Close();
+                SqlDataAdapter adapter = new SqlDataAdapter(command1);
+                DataTable dt = new DataTable();
+                adapter.Fill(dt);
+                Reviewdetails.DataSource = dt;
+                Reviewdetails.DataBind();
             }
+
+           
             finally
             {
                 connection.Close();

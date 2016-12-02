@@ -13,15 +13,6 @@ namespace Comp229_TeamProject {
     public partial class ViewBooks {
         
         /// <summary>
-        /// discont control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.HtmlControls.HtmlGenericControl discont;
-        
-        /// <summary>
         /// nameofitem control.
         /// </summary>
         /// <remarks>
@@ -56,5 +47,23 @@ namespace Comp229_TeamProject {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.Label Description;
+        
+        /// <summary>
+        /// Others control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Label Others;
+        
+        /// <summary>
+        /// Reviewdetails control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.GridView Reviewdetails;
     }
 }
