@@ -14,6 +14,8 @@
                  <asp:Label ID="UniqueNo" runat="server" /><asp:Label ID="pages" runat="server" /> <br /> <br />
                 <asp:Label ID="RDate" runat="server" /> <br /> <br />
                 <asp:Label ID="Description" runat="server" /> <br /> <br />
+                <asp:Label ID="Cstatus" runat="server" /> <br /> <br />
+                <asp:Label ID="ItemStatus" runat="server" /> <br /> <br />
                 <div id="authors" runat="server" visible="false"> <h6> <b> Authors : </b></h6>
                   <asp:Label ID="authordata" runat="server" />
                     <asp:Repeater ID="authordetails" runat="server" >

@@ -76,6 +76,24 @@ namespace Comp229_TeamProject {
         protected global::System.Web.UI.WebControls.Label Description;
         
         /// <summary>
+        /// Cstatus control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Label Cstatus;
+        
+        /// <summary>
+        /// ItemStatus control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Label ItemStatus;
+        
+        /// <summary>
         /// authors control.
         /// </summary>
         /// <remarks>

@@ -15,6 +15,7 @@ namespace Comp229_TeamProject
         private const string AntiXsrfTokenKey = "__AntiXsrfToken";
         private const string AntiXsrfUserNameKey = "__AntiXsrfUserName";
         private string _antiXsrfTokenValue;
+        private object username;
 
         protected void Page_Init(object sender, EventArgs e)
         {
@@ -75,6 +76,12 @@ namespace Comp229_TeamProject
         protected void Unnamed_LoggingOut(object sender, LoginCancelEventArgs e)
         {
             Context.GetOwinContext().Authentication.SignOut(DefaultAuthenticationTypes.ApplicationCookie);
+        }
+
+        protected void logout_Click(object sender, EventArgs e)
+        {
+            
+            Response.Redirect("~/default.aspx");
         }
     }
 

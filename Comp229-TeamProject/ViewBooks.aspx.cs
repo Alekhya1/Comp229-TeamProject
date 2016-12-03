@@ -22,6 +22,7 @@ namespace Comp229_TeamProject
             SqlConnection connection = new SqlConnection(connectionString);
             SqlCommand command = new SqlCommand("null");
             SqlCommand command1 = new SqlCommand("null");
+            SqlCommand command2 = new SqlCommand("null");
 
             if (itemvalue == 1)
             {
@@ -56,6 +57,9 @@ namespace Comp229_TeamProject
                         command1 = new SqlCommand("select users.FirstName,users.LastName,Review.Rating,Review.Comments from SUsers users,SReview Review where users.UserID=Review.UserID and Review.ItemId=@ItemId", connection);
                         command1.Parameters.Add("@ItemId", System.Data.SqlDbType.Int);
                         command1.Parameters["@ItemId"].Value = Convert.ToInt32(reader["MovieId"]);
+                        command2 = new SqlCommand("select * from BStatus where ItemID=@ItemID",connection);
+                        command2.Parameters.Add("@ItemId", System.Data.SqlDbType.Int);
+                        command2.Parameters["@ItemId"].Value = Convert.ToInt32(reader["MovieId"]);
 
                         category.Text = itemvalue.ToString();
                         ItemId.Text = reader["MovieId"].ToString();
@@ -72,6 +76,9 @@ namespace Comp229_TeamProject
                         command1 = new SqlCommand("select users.FirstName,users.LastName,Review.Rating,Review.Comments from SUsers users,SReview Review where users.UserID=Review.UserID and Review.ItemId=@ItemId", connection);
                         command1.Parameters.Add("@ItemId", System.Data.SqlDbType.Int);
                         command1.Parameters["@ItemId"].Value = Convert.ToInt32(reader["GameID"]);
+                        command2 = new SqlCommand("select * from BStatus where ItemID=@ItemID", connection);
+                        command2.Parameters.Add("@ItemId", System.Data.SqlDbType.Int);
+                        command2.Parameters["@ItemId"].Value = Convert.ToInt32(reader["GameID"]);
 
                         category.Text = itemvalue.ToString();
                         ItemId.Text = reader["GameID"].ToString();
@@ -89,6 +96,9 @@ namespace Comp229_TeamProject
                         command1 = new SqlCommand("select users.FirstName,users.LastName,Review.Rating,Review.Comments from SUsers users,SReview Review where users.UserID=Review.UserID and Review.ItemId=@ItemId", connection);
                         command1.Parameters.Add("@ItemId", System.Data.SqlDbType.Int);
                         command1.Parameters["@ItemId"].Value = bookid;
+                        command2 = new SqlCommand("select * from BStatus where ItemID=@ItemID", connection);
+                        command2.Parameters.Add("@ItemId", System.Data.SqlDbType.Int);
+                        command2.Parameters["@ItemId"].Value = bookid;
 
 
                         category.Text = itemvalue.ToString();
@@ -116,6 +126,18 @@ namespace Comp229_TeamProject
                 {
                     Reviewdetails.DataSource = dt;
                     Reviewdetails.DataBind();
+
+                }
+                SqlDataReader reader1 = command2.ExecuteReader();
+                if (reader1.Read())
+                {
+                    Cstatus.Text =  "<b>Current Status :</b>"+reader1["CStatus"].ToString();
+                    ItemStatus.Text = "<b>Item  Status :</b>"+ reader1["ItemStatus"].ToString();
+                }
+                else
+                {
+                    Cstatus.Text = "<b>Current Status :</b>" + " No data Available";
+                    ItemStatus.Text = "<b>Item Status :</b>" + " No data Available";
 
                 }
             }

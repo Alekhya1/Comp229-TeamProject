@@ -89,6 +89,30 @@ namespace Comp229_TeamProject
 
         protected void LogIn_Click(object sender, EventArgs e)
         {
+            string uname = UserName.Text;
+            string pwd = Password.Text;
+            string connectionString = ConfigurationManager.ConnectionStrings["anithasystem"].ConnectionString;
+            SqlConnection connection = new SqlConnection(connectionString);
+            SqlCommand command = new SqlCommand("select * from Login where UserName=@UserName and Password=@Password",connection);
+           
+            try
+            {
+                connection.Open();
+                SqlDataReader reader = command.ExecuteReader();
+                if(reader.Read())
+                {
+                    
+                }
+
+                else
+                {
+
+                }
+            }
+            finally
+            {
+                connection.Close();
+            }
 
         }
 
